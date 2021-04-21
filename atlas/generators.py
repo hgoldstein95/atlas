@@ -231,7 +231,7 @@ def compile_func(gen: 'Generator', func: Callable, strategy: Strategy, with_hook
     g.update({k: v for k, v in handlers.items()})
     g.update({k: v for k, v in op_infos.items()})
 
-    module = ast.Module()
+    module = ast.Module(type_ignores=[])
     module.body = [f_ast]
 
     #  Passing ``g`` to exec allows us to execute all the new functions
